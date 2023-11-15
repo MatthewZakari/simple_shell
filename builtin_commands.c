@@ -23,12 +23,16 @@ int exit_shell(info_t *info)
 			display_error(info, "Illegal number: ");
 			print_error_message(c_str);
 			print_character_to_fd('\n');
-			return (1);
+			exit(0);
 		}
 		info->err_num = exit_code;
+		exit(exit_code);
 	}
 	else
+	{
 		info->err_num = -1;
+		exit(0);
+	}
 	return (-2);
 }
 
